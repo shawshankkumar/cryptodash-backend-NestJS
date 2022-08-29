@@ -1,18 +1,20 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, All } from '@nestjs/common';
 import {
   HealthCheckService,
   HttpHealthIndicator,
   HealthCheck,
 } from '@nestjs/terminus';
 
-@Controller('health')
+@Controller({
+    path:'health'
+})
 export class HealthController {
   constructor(
     private health: HealthCheckService,
     private http: HttpHealthIndicator,
   ) {}
 
-  @Get()
+  @All()
   @HealthCheck()
   check() {
     return this.health.check([]);
