@@ -11,10 +11,6 @@ export class SignUpSchema {
     @Length(2)
     @IsString()
     name: string;
-
-    @IsOptional()
-    @Length(13, 13)
-    createdAt: number = +new Date;
 }
 
 export class LoginSchema {
