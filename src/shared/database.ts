@@ -7,8 +7,8 @@ import { MongoClient, Db } from 'mongodb';
       provide: 'DATABASE_CONNECTION',
       useFactory: async (): Promise<Db> => {
         try {
-        //   const client = await MongoClient.connect(process.env.MONGO_URI);
-        //   return client.db('cryptodash');
+          const client = await MongoClient.connect(process.env.MONGO_URI);
+          return client.db('cryptodash');
         return;
         } catch (e) {
           throw e;
