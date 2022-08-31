@@ -50,9 +50,10 @@ import { ERROR_MESSAGES, PAGINATION_NUMBER } from './constants';
             },
           })
         ).data.data;
-        return slugsArr.map((e) => {
+        return slugsArr.map((e, i) => {
           const data = res[e.id];
           return {
+            index: i,
             rank: e.cmc_rank,
             tags: data.tags,
             slug: data.slug,
